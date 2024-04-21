@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  service1:
+    image: node:latest
+    build: 
+      dockerfile: ./service1/dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./service1/node_modules:/usr/src/app/node_modules"
+
+    
+  service2:
+    image: node:latest
+    build: 
+      dockerfile: ./service2/dockerfile
+    ports:
+      - "3000:3001"
+    volumes:
+      - "./service1/node_modules:/usr/src/app/node_modules"
